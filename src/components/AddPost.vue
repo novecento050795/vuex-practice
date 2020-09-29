@@ -7,34 +7,34 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+  import { mapMutations } from 'vuex'
 
-export default {
-  data() {
-    return {
-      title: "",
-      body: "",
-    }
-  },
-  methods: {
-    ...mapMutations(['addPost']),
-    createPost() {
-      if (this.title && this.body) {
-        this.addPost({
-          id: Date.now(),
-          title: this.title,
-          body: this.body
-        });
+  export default {
+    data() {
+      return {
+        title: "",
+        body: "",
+      }
+    },
+    methods: {
+      ...mapMutations(['addPost']),
+      createPost() {
+        if (this.title && this.body) {
+          this.addPost({
+            id: Date.now(),
+            title: this.title,
+            body: this.body
+          });
 
-        this.body = this.title = ''
+          this.body = this.title = ''
+        }
+        else {
+          alert("Enter title and body")
+        }
+        
       }
-      else {
-        alert("Enter title and body")
-      }
-      
     }
   }
-}
 </script>
 
 <style scoped>
